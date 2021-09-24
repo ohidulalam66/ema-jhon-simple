@@ -1,0 +1,26 @@
+.product {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 5px;
+}
+.product-img {
+  margin-right: 20px;
+}
+.product-name {
+  color: blue;
+  font-size: 18px;
+  font-weight: 400;
+}
+.purchase-btn {
+  margin-top: 10px;
+  cursor: pointer;
+  background: #f0c14b;
+  padding: 4px 60px 4px 60px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+.fa-star {
+  color: #f1c043;
+  font-size: 20px;
+}
