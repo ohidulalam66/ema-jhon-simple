@@ -5,7 +5,7 @@ import './Product.css';
 import Rating from 'react-rating';
 
 const Product = props => {
-    console.log(props)
+    // console.log(props)
     const {img, name, price, stock, seller, star}= props.product;
     const cartIcon = <FontAwesomeIcon icon={faShoppingCart} />
     return (

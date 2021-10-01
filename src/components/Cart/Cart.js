@@ -24,12 +24,13 @@ const Cart = (props) => {
             <div className= "order-header">
                 <h2>Order Summary</h2>
                 <h4>Items odered: {totalQuantity}</h4>
-            </div>
+            </div >
             <div className= "order-footer">
-                <p>Total: {total.toFixed(2)}</p>
+                <p>Price: ${total.toFixed(2)}</p>
                 <p>Shipping & Handling: ${shipping}</p>
                 <p>Tax: ${tax.toFixed(2)}</p>
-                <h3>Grand Total: ${grandTotal.toFixed(2)}</h3>
+                <hr />
+                <h3>Total: ${grandTotal.toFixed(2)}</h3>
             </div>
         </div>
     );

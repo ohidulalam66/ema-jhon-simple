@@ -2,5 +2,8 @@
   text-align: center;
 }
 .order-footer {
+  padding: 10px;
+  border: 1px solid lightgray;
+  font-size: 20px;
   font-weight: 200;
 }

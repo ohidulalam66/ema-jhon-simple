@@ -7,6 +7,7 @@ import './Shop.css'
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+    // products tp be rendered UI
     const [UIProducts, setUIProducts] = useState([]);
 
     useEffect(() => {
@@ -44,7 +45,7 @@ const Shop = () => {
 
     const handleSearch = event => {
         const searchText = event.target.value;
-        
+
         const macthedProducts = products.filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));
 
         setUIProducts(macthedProducts);
