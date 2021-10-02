@@ -3,15 +3,24 @@ import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
 import ReveiwProducts from '../ReveiwProducts/ReveiwProducts';
 import Cart from '../Cart/Cart';
-import { removeFromDb } from '../../utilities/fakedb';
+import { clearTheCart, removeFromDb } from '../../utilities/fakedb';
+import { useHistory } from 'react-router-dom';
 
 const OrderReveiw = () => {
     const [products] = useProducts();
     const [cart, setCart] = useCart(products);
+
     const handleRemove = key => {
         const newCart = cart.filter(product => product.key !== key);
         setCart(newCart);
         removeFromDb(key);
+    }
+
+    const history = useHistory();
+    const handlePlaceOrder = () => {
+        history.push("/placeorder");
+        setCart([]);
+        clearTheCart();
     }
     return (
         <>
@@ -26,7 +35,10 @@ const OrderReveiw = () => {
                         }
                     </div>
                     <div className="cart-container">
-                        <Cart cart= {cart}></Cart>
+                        <Cart cart= {cart}>
+                        <button onClick= {handlePlaceOrder} 
+                        className= "purchase-btn">Place order</button>
+                        </Cart>
                     </div>
                 </div>
         </>

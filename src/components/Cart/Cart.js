@@ -31,6 +31,7 @@ const Cart = (props) => {
                 <p>Tax: ${tax.toFixed(2)}</p>
                 <hr />
                 <h3>Total: ${grandTotal.toFixed(2)}</h3>
+                <p className= "btn-align">{props.children}</p>
             </div>
         </div>
     );

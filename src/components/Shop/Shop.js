@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
-import './Shop.css'
+import './Shop.css';
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -37,8 +38,8 @@ const Shop = () => {
     }, [products])
     
     const handleAddToCart = product => {
-        const newCount = [...cart, product];
-        setCart(newCount);
+        const newCart = [...cart, product];
+        setCart(newCart);
         // save to local storage (for now)
         addToDb(product.key)
     }
@@ -71,7 +72,11 @@ const Shop = () => {
                         }
                     </div>
                     <div className="cart-container">
-                        <Cart cart= {cart}></Cart>
+                        <Cart cart= {cart}>
+                        <Link to= "/orders">
+                        <button className= "purchase-btn">Review your order</button>
+                        </Link>
+                        </Cart>
                     </div>
                 </div>
             </div>
