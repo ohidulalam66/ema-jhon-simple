@@ -12,12 +12,12 @@ const Shop = () => {
     const [UIProducts, setUIProducts] = useState([]);
 
     useEffect(() => {
-        fetch('./products.JSON')
-        .then(res => res.json())
-        .then(data => {
-            setProducts(data);
-            setUIProducts(data);
-        })
+        fetch('./products.json')
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data);
+                setUIProducts(data);
+            })
     }, [])
 
     // side-effect save Cart add to local storage
@@ -27,16 +27,16 @@ const Shop = () => {
             const storedCart = [];
             for (const key in saveCart) {
                 const addedProduct = products.find(product => product.key === key);
-                if(addedProduct) {
+                if (addedProduct) {
                     const quantity = saveCart[key];
-                    addedProduct.quantity =quantity;
+                    addedProduct.quantity = quantity;
                     storedCart.push(addedProduct);
                 }
             }
             setCart(storedCart);
         }
     }, [products])
-    
+
     const handleAddToCart = product => {
         const newCart = [...cart, product];
         setCart(newCart);
@@ -55,27 +55,27 @@ const Shop = () => {
     return (
         <>
             <div className="search-container">
-                <input 
-                type="text" 
-                onChange= {handleSearch}
-                placeholder= "Search products"/>
+                <input
+                    type="text"
+                    onChange={handleSearch}
+                    placeholder="Search products" />
             </div>
             <div>
                 <div className="shop-container">
                     <div className="product-container">
                         {
-                        UIProducts.map(product => <Product 
-                        key= {product.key}
-                        product= {product}
-                        handleAddToCart= {handleAddToCart}
-                        ></Product>)
+                            UIProducts.map(product => <Product
+                                key={product.key}
+                                product={product}
+                                handleAddToCart={handleAddToCart}
+                            ></Product>)
                         }
                     </div>
                     <div className="cart-container">
-                        <Cart cart= {cart}>
-                        <Link to= "/orders">
-                        <button className= "purchase-btn">Review your order</button>
-                        </Link>
+                        <Cart cart={cart}>
+                            <Link to="/orders">
+                                <button className="purchase-btn">Review your order</button>
+                            </Link>
                         </Cart>
                     </div>
                 </div>

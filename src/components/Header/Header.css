@@ -8,8 +8,10 @@
 .header nav {
   background: black;
   line-height: 40px;
-  text-align: left;
   padding-left: 20px;
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
 }
 .header nav a {
   text-decoration: none;
@@ -21,3 +23,8 @@
 .header nav a:hover {
   background-color: lightgray;
 }
+span{
+color: white;
+
+}
+

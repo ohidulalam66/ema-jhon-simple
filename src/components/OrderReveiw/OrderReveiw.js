@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 const OrderReveiw = () => {
     const [products] = useProducts();
     const [cart, setCart] = useCart(products);
+    console.log(cart, products)
 
     const handleRemove = key => {
         const newCart = cart.filter(product => product.key !== key);
@@ -18,36 +19,36 @@ const OrderReveiw = () => {
 
     const history = useHistory();
     const handlePlaceOrder = () => {
-        history.push("/placeorder");
-        setCart([]);
-        clearTheCart();
+        history.push("/shipping");
+        // setCart([]);
+        // clearTheCart();
     }
     return (
         <>
             <div className="shop-container">
-                    <div className="product-container">
-                        {
-                            cart.map(product => <ReveiwProducts 
-                            key= {product.key}
-                            product= {product}
-                            handleRemove= {handleRemove}
-                            ></ReveiwProducts>)
-                        }
-                    </div>
-                    <div className="cart-container">
-                        <Cart cart= {cart}>
-                        <button onClick= {handlePlaceOrder} 
-                        className= "purchase-btn">Place order</button>
-                        </Cart>
-                    </div>
+                <div className="product-container">
+                    {
+                        cart?.map(product => <ReveiwProducts
+                            key={product.key}
+                            product={product}
+                            handleRemove={handleRemove}
+                        ></ReveiwProducts>)
+                    }
                 </div>
+                <div className="cart-container">
+                    <Cart cart={cart}>
+                        <button onClick={handlePlaceOrder}
+                            className="purchase-btn">Proceed to shipping</button>
+                    </Cart>
+                </div>
+            </div>
         </>
     );
 };
 
 export default OrderReveiw;
 
-/* 
+/*
 <h2>This is Order Reveiw; {products.length}</h2>
             <h3>{cart.length}</h3>
             <Cart cart= {cart}></Cart>
